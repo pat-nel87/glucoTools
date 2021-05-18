@@ -7,8 +7,9 @@
 
 import matplotlib
 import matplotlib.pyplot as plt
+from matplotlib.dates import DayLocator, HourLocator, DateFormatter, drange
 
-from io import StringIO
+import numpy as np
 
 from datetime import date, time, datetime
 
@@ -52,17 +53,15 @@ def graphQuery(filterList):
     mySugars = []
     for i in range(len(filterList)):
         myDates.append(filterList[i][0])
-        mySugars.append(filterList[i][1])
+        mySugars.append(float(filterList[i][1]))
     x = matplotlib.dates.date2num(myDates)
-    y = mySugars
-    values = [0,100,150,200,250,300,350,400]
+    y = mySugars 
 
     fig = matplotlib.pyplot.figure()
-    #plt.xlim(0,300)
-    matplotlib.pyplot.plot_date(x, y, 'r', label="mg/dl")
-    plt.yticks(values, values) 
-    #plt.xlim(0,300)
-    
+    matplotlib.pyplot.plot_date(x, y, 'o-', label="mg/dl")
+    fig.autofmt_xdate()
+
+
     fig.savefig(graphFile)
     plt.show()
 
