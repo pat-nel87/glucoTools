@@ -8,8 +8,6 @@ import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.dates import DayLocator, HourLocator, DateFormatter, drange
 
-import numpy as np
-
 from datetime import date, time, datetime
 
 class graphData:
