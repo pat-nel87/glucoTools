@@ -8,8 +8,6 @@
 import matplotlib
 import matplotlib.pyplot as plt
 
-from io import StringIO
-
 from datetime import date, time, datetime
 
 
@@ -18,33 +16,7 @@ allReadings = []
 dates = []
 times = []
 bloodSugar = []
-
-def dateConvert(dates, times):
-
-    myList = []
-
-    for i in range(len(dates)):
-        myDate = date.fromisoformat(str(dates[i]))
-        myTime = time.fromisoformat(str(times[i]))
-        myDatetime = datetime.combine(myDate, myTime)
-        myList.append(myDatetime)
-
-    return myList
-
-def graphList(myList, bloodSugar):
-    print("\n")
-    graphFile = input("Please enter a file name for graph: ")
-    graphFile = graphFile + ".png"
-    x = matplotlib.dates.date2num(myList)
-    y = bloodSugar
-    fig = matplotlib.pyplot.figure()
-    
-    matplotlib.pyplot.plot_date(x, y, 'r', label="mg/dl")
-
-    fig.savefig(graphFile)
-    plt.show()
         
-
 def fileClean():
 
     file = input("Enter Filename: ")
@@ -138,11 +110,7 @@ filtered = filterList(allReadings)
 preciseFilter(filtered)
 
 
-#datetimeList = dateConvert(dates, times)
-#graphList(datetimeList, bloodSugar)    
-#print(allReadings[0])
-#print("\n")
-#print(allReadings[0][0])
+
 
 
 
