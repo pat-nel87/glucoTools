@@ -14,7 +14,7 @@ matplotlib.use('TkAgg')
 
 
 
-#figQuery = graphData(fileIn = "patreading.txt", fileGraph="clitest1", dateFilter=[2021,3,25])
+# figQuery = graphData(fileIn = "patreading.txt", fileGraph="clitest1", dateFilter=[2021,3,25])
 figQuery = graphData(fileIn = "patreading.txt", fileGraph="clitest1", dateFilter=[2021,3])
 fig = figQuery.getFig()
 dateIn = figQuery.getDate()
@@ -30,12 +30,13 @@ def draw_figure(canvas, figure):
 
 # ------------------------------- Beginning of GUI CODE -------------------------------
 
-
 # define the window layout
-layout = [[sg.Text(dateIn)],
+layout = [
+          [sg.Text(dateIn)],                                  
           [sg.Canvas(key='-CANVAS-')],
+          #[sg.HorizontalSeparator()],
+          [sg.Table(readingList, def_col_width=25, headings=["Date/Time","mg/dl"])],
           [sg.Button('Ok')],
-          [sg.Text(readingList)]
          ]
 
 # create the form and show it without the plot

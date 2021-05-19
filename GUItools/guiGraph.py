@@ -24,14 +24,13 @@ class graphData:
             return f"{self.dateFilter[0]}" 
     
     def getList(self):
-        temp = None
+        temp = []
         filterList = self.queryList
         for i in range(len(filterList)):
-            if temp == None:
-               temp = f"{filterList[i][0]} {filterList[i][1]}" + "\n"
-            else:
-               temp = temp + f"{filterList[i][0]} {filterList[i][1]}" + "\n"
-        return temp
+            filterList[i][0] = (filterList[i][0]).strftime("%m/%d/%Y, %H:%M:%S") 
+           # temp.append(f"{filterList[i][0]}, {filterList[i][1]}")
+             
+        return filterList
 
     def returnFig(self, filterList):
         
