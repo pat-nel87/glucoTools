@@ -29,18 +29,17 @@ def draw_figure(canvas, figure):
     return figure_canvas_agg
 
 # ------------------------------- Beginning of GUI CODE -------------------------------
-
+sg.theme('Dark Teal 7')
 # define the window layout
 layout = [
           [sg.Text(dateIn)],                                  
           [sg.Canvas(key='-CANVAS-')],
-          #[sg.HorizontalSeparator()],
-          [sg.Table(readingList, def_col_width=25, headings=["Date/Time","mg/dl"])],
+          [sg.Table(readingList, headings=["Date     | Time "," mg/dl  "], justification='left')],
           [sg.Button('Ok')],
          ]
 
 # create the form and show it without the plot
-window = sg.Window('glucoTools-GUI', layout, finalize=True, element_justification='center', font='Helvetica 18')
+window = sg.Window('glucoTools-GUI', layout, finalize=True, resizable=True, element_justification='center', font='Monospace 10')
 
 # add the plot to the window
 fig_canvas_agg = draw_figure(window['-CANVAS-'].TKCanvas, fig)

@@ -27,7 +27,7 @@ class graphData:
         temp = []
         filterList = self.queryList
         for i in range(len(filterList)):
-            filterList[i][0] = (filterList[i][0]).strftime("%m/%d/%Y, %H:%M:%S") 
+            filterList[i][0] = (filterList[i][0]).strftime("%m/%d/%y | %H:%M ") 
            # temp.append(f"{filterList[i][0]}, {filterList[i][1]}")
              
         return filterList
