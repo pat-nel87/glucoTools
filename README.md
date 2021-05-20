@@ -4,5 +4,5 @@ my fork of glucometerUtils. I hope to eventually evolve this project
 into a GUI app of sorts as a frontend over glucometerUtils.
 
 GUI in development!
-![](guiToolstheme.png?raw=true)
+![](GUItools/guiToolstheme.png?raw=true)
 
