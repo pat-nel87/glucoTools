@@ -40,25 +40,25 @@ def make_win2():
           [sg.Text(dateIn)],
           [sg.Canvas(key='-CANVAS-')],
           [sg.Table(readingList, headings=["Date     | Time "," mg/dl  "], justification='left')],
-          [sg.Button('Ok')],
-         ]
+          [sg.Button('Ok')]]
     return sg.Window('glucoTools-GUI', layout, finalize=True, resizable=True, 
             element_justification='center', font='Monospace 10')
 
 #fig_canvas_agg = draw_figure(window['-CANVAS-'].TKCanvas, fig)
 
 def localFilter():
-    temp = []
-    if int(values["-DAY-"]) > 0:
-       temp.append(values["-YEAR-"])
-       temp.append(values["-MONTH-"])        
-       temp.append(values["-DAY-"])
-       return temp    
-    elif int(values["-MONTH-"]):
+   temp = []
+        
+   if values["-DAY-"]:
+        temp.append(values["-YEAR-"])
+        temp.append(values["-MONTH-"])        
+        temp.append(values["-DAY-"])
+        return temp    
+   elif values["-MONTH-"]:
        temp.append(values["-YEAR-"])
        temp.append(values["-MONTH-"])
        return temp    
-    elif int(values["-YEAR-"]):
+   elif values["-YEAR-"]:
        temp.append(values["-YEAR-"])
        return temp
 
@@ -71,7 +71,7 @@ while True:             # Event Loop
     
     window, event, values = sg.read_all_windows()
     sg.theme('Dark Teal 7')
-    if event == sg.WIN_CLOSED or event == 'Exit':
+    if event == sg.WIN_CLOSED or event == 'Exit' or event == 'Ok':
         window.close()
         if window == window2:       # if closing win 2, mark as closed
             #sg.theme('Dark Teal 7')
@@ -83,16 +83,11 @@ while True:             # Event Loop
     elif event == 'View Graph' and not window2:
         dateFilter = localFilter()
         figQuery = graphData(fileIn = "patreading.txt", fileGraph="clitest1", dateFilter=dateFilter)
-#figQuery = graphData(fileIn = "patreading.txt", fileGraph="clitest1", dateFilter=[2020,3])
         fig = figQuery.getFig()
         dateIn = figQuery.getDate()
         readingList = figQuery.getList()
         window2 = make_win2()
         fig_canvas_agg = draw_figure(window2['-CANVAS-'].TKCanvas, fig)
-    elif event == '-IN-':
-        window['-OUTPUT-'].update(f'You enetered {values["-IN-"]}')
-    elif event == 'Erase':
-        window['-OUTPUT-'].update('')
-        window['-IN-'].update('')
+    
 window.close()
 
