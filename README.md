@@ -1,8 +1,8 @@
 # GlucoTools
-a collection of scripts designed to work with
-my fork of glucometerUtils. I hope to eventually evolve this project
-into a GUI app of sorts as a frontend over glucometerUtils.
+a GUI app that allow you to graph data pulled
+from a fs precision neo glucometer. 
+Documentation soon to follow!
 
-GUI in development!
+![](SearchBar.png?raw=true)
 ![](GUItools/guiToolstheme.png?raw=true)
 
