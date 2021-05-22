@@ -29,8 +29,6 @@ class graphData:
         filterList = self.queryList
         for i in range(len(filterList)):
             filterList[i][0] = (filterList[i][0]).strftime("%m/%d/%y | %H:%M ") 
-           # filterList[i][1] = int(filterList[i][1])
-           # temp.append(f"{filterList[i][0]}, {filterList[i][1]}")
              
         return filterList
 
@@ -46,21 +44,11 @@ class graphData:
          
         x = matplotlib.dates.date2num(myDates)
         y = mySugars
-       # avgdiv = float(len(mySugars)) 
-       # if avgdiv != 0:
-       #  a = np.array([float(sum(mySugars))/float(len(mySugars))])
-       #  b = np.array([x])
-       # else:
-       #  a = np.zeros_like(mySugars)
-       #  b= np.array([x])
         
         fig = matplotlib.pyplot.figure()
         matplotlib.pyplot.plot_date(x, y, 'o-', label="mg/dl")
-       # matplotlib.pyplot.plot_date(b, a, 'go')
-        #ax =  fig.add_subplot(b, a, 'r--')       
         fig.autofmt_xdate()
         fig.savefig(graphFile)
-        #plt.show()
         self.figOut = fig
        # return fig    
 
@@ -102,7 +90,6 @@ class graphData:
         self.returnFig(queryList)
 
     def filterList(self):
-
             # creates new list of lists with 2 indices
             # myList[n][0] datetime object
             # myList[n][1] blood glucose reading

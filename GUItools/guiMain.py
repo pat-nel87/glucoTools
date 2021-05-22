@@ -14,8 +14,8 @@ matplotlib.use('TkAgg')
 
 
 
-# figQuery = graphData(fileIn = "patreading.txt", fileGraph="clitest1", dateFilter=[2021,3,25])
 figQuery = graphData(fileIn = "patreading.txt", fileGraph="clitest1", dateFilter=[2021,3])
+#figQuery = graphData(fileIn = "patreading.txt", fileGraph="clitest1", dateFilter=[2020,3])
 fig = figQuery.getFig()
 dateIn = figQuery.getDate()
 readingList = figQuery.getList()
